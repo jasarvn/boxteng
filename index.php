@@ -7,18 +7,23 @@ define("__BOX_PATH", __PATH."/box"); //update to project path
 $test2 = new view_box();
 
 $data3 = array(
-            "title"=>"templates",
-            "body"=>"jasper"
+            "titl"=>"templates",
+            "bod"=>"jasper"
         );
 
 
-        $data2 = array(
-                    "title"=>"templates",
-                    "body"=>"jasper"
+        $data4 = array(
+                    "title"=>"templats1",
+                    "body"=>"arvin"
                 );
 
 
-$test2->view('/sub_view/test2.php',$data2,$data3);
+        $data2 = array(
+                  "test_array" => $data3
+                );
+
+
+$test2->view('/test.html',$data2,$data3,$data2,$data3,$data4);
 
 
 

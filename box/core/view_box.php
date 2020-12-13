@@ -2,6 +2,8 @@
 class view_box{
 
   private $assign = [];
+  private $assign_var =  [];
+  private $assign_array = [];
 
   function __construct(){
 
@@ -9,24 +11,43 @@ class view_box{
 
   }
 
+  public function assign_to(array $data){
+
+  }
+
+
   public function view(){
     $path = func_get_arg(0);
-    $data1 = func_get_arg(1);
-    $var = func_get_arg(2);
 
-   $numargs = func_num_args();
+    $this->assign = func_get_args();
+    //assign data to var or array
+    if(func_num_args() > 1 ){
 
-  // var_dump($GLOBALS);
 
-  /* foreach($GLOBALS as $varName => $value) {
-      var_dump($varName);
 
-        if ($value === $data1) {
-            return $varName;
+        for($cnt = 1; $cnt <= (func_num_args()-1);$cnt++){
+
+            //array_push($this->assign,func_get_arg($cnt));
+            foreach(func_get_arg($cnt) as $key => $value){
+
+                if(is_array($value)){
+                  array_push($this->assign_array,func_get_arg($cnt));
+                  break;
+                }
+                else{
+                  array_push($this->assign_var,func_get_arg($cnt));
+                  break;
+                }
+
+            }
         }
+
+
     }
-*/
-    $this->assign = $data1;
+
+//  $numargs = func_num_args();
+
+  //  $this->assign = $data1;
 
     //process page
     $page = $this->page_init(__VIEW_PATH.$path);
@@ -68,8 +89,24 @@ class view_box{
 
       $obj = preg_split("/\W+/", $obj1);
       $obj = $obj[1];
-      $page = str_replace($obj1, $this->assign[$obj], $page);
+      $count = 0;
 
+      foreach($this->assign_var as $key => $val){
+          if(array_key_exists($obj,$val)){
+
+              $page = str_replace($obj1, $val[$obj], $page);
+              $count = 0;
+              break;
+          }
+          else{
+            $count++;
+          }
+      }
+
+      /*if($count >=1 ){
+        $page = str_replace($obj1, " ", $page);
+      }*/
+      $page = ($count > 0) ?: str_replace($obj1, " ", $page);
     }
 
     return $page;
