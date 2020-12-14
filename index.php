@@ -7,14 +7,14 @@ define("__BOX_PATH", __PATH."/box"); //update to project path
 $test2 = new view_box();
 
 $data3 = array(
-            "titl"=>"templates",
+            "title"=>"templates",
             "bod"=>"jasper"
         );
 
 
         $data4 = array(
-                    "title"=>"templats1",
-                    "body"=>"arvin"
+                    "body"=>"templats1",
+                    "bod"=>"arvin"
                 );
 
 

@@ -1,9 +1,8 @@
 <?php
-class view_box{
+require_once("Assignment.php");
 
-  private $assign = [];
-  private $assign_var =  [];
-  private $assign_array = [];
+class view_box{
+  use Assignment;
 
   function __construct(){
 
@@ -11,46 +10,17 @@ class view_box{
 
   }
 
-  public function assign_to(array $data){
 
-  }
 
 
   public function view(){
-    $path = func_get_arg(0);
-
-    $this->assign = func_get_args();
-    //assign data to var or array
-    if(func_num_args() > 1 ){
 
 
+    $this->set_assign(func_get_args());
 
-        for($cnt = 1; $cnt <= (func_num_args()-1);$cnt++){
+    $this->set_values(func_num_args());
 
-            //array_push($this->assign,func_get_arg($cnt));
-            foreach(func_get_arg($cnt) as $key => $value){
-
-                if(is_array($value)){
-                  array_push($this->assign_array,func_get_arg($cnt));
-                  break;
-                }
-                else{
-                  array_push($this->assign_var,func_get_arg($cnt));
-                  break;
-                }
-
-            }
-        }
-
-
-    }
-
-//  $numargs = func_num_args();
-
-  //  $this->assign = $data1;
-
-    //process page
-    $page = $this->page_init(__VIEW_PATH.$path);
+    $page = $this->page_init(__VIEW_PATH.$this->view_path);
 
     $page = $this->process_variable($page);
 
@@ -91,7 +61,7 @@ class view_box{
       $obj = $obj[1];
       $count = 0;
 
-      foreach($this->assign_var as $key => $val){
+      foreach($this->get_assign_var() as $key => $val){
           if(array_key_exists($obj,$val)){
 
               $page = str_replace($obj1, $val[$obj], $page);
