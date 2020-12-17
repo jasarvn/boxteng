@@ -1,13 +1,13 @@
 <?php
 trait Assignment {
 
-  private $assign = [];
+  protected $assign = [];
 
-  private $assign_var =  [];
+  protected $assign_var =  [];
 
-  private $assign_array = [];
+  protected $assign_array = [];
 
-  private $view_path;
+  protected $view_path;
 
   protected function get_view_path(string $path){
     return $path;
@@ -27,15 +27,15 @@ trait Assignment {
     return $assign_array;
   }
 
-  private function set_assign_array($val){
+  public function set_assign_array($val){
     array_push($this->assign_array,$val);
   }
 
-  private function set_assign_var($val){
+  public function set_assign_var($val){
     array_push($this->assign_var,$val);
   }
 
-  private function get_assign_var(){
+  protected function get_assign_var(){
     return $this->assign_var;
   }
 
