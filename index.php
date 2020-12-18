@@ -8,11 +8,12 @@ $test2 = new view_box();
 
 $data3 = array(
             "title"=>"templates",
+             "body"=>"templats1",
         );
 
 
         $data4 = array(
-            //        "body"=>"templats1",
+                 "body"=>"templats1",
                   //  "bod"=>"arvin"
                 );
 
@@ -22,7 +23,7 @@ $data3 = array(
                 );
 
 $test2->set_assign_var($data3);
-$test2->view('/sub_view/test2.php');
+$test2->view('/test.html');
 
 
 
