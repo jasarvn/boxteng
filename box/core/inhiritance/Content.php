@@ -20,17 +20,20 @@ trait Content
             if($cnt == 0){
             //first template file
               $template_path = $this->process_value($match[0],$cnt);
-              array_push($content_page,array("template_path"=>$template_path));
+              $content_page["template_path"] = $template_path;
+              //array_push($content_page,array("template_path"=>$template_path));
             }
             else if ($cnt == 1){
             //second content name
               $template_content_name = $this->process_value($match[0],$cnt);
-              array_push($content_page,array("template_content_name"=>$template_content_name));
+              $content_page['template_content_name'] = $template_content_name;
+              //array_push($content_page,array("template_content_name"=>$template_content_name));
             }
             else{
             //content
               $template_content = $this->process_value($match[0],$cnt);
-              array_push($content_page,array("template_content"=>$template_content));
+              $content_page['template_content'] = $template_content;
+              //array_push($content_page,array("template_content"=>$template_content));
            }
          }
 

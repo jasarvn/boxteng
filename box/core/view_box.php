@@ -1,6 +1,6 @@
 <?php
 require_once("Init.php");
-
+require_once("constant\Constant.php");
 class view_box extends Init{
 
   function __construct(){
@@ -19,8 +19,8 @@ class view_box extends Init{
     $page = $this->page_init(__VIEW_PATH.$this->view_path);
 
     //process inhiritance
-    $content = $this->init_inhiritance($page);
-    
+    $page = $this->init_inhiritance($page);
+
     //process variable
     $page = $this->process_variable($page);
 
@@ -35,9 +35,8 @@ class view_box extends Init{
 
   private function process_variable($page){
     //process variable template from page
-    $pattern = "/{{\w+}}/";
 
-    preg_match_all($pattern, $page, $matches);
+    preg_match_all(VARIABLE, $page, $matches);
 
     $tempObjects = $matches[0];
 

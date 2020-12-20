@@ -3,15 +3,18 @@
  *
  */
 require_once("Content.php");
+require_once("Template.php");
 trait Inhiritance
 {
 
   use Content;
+  use Template;
 
   protected function init_inhiritance($page){
     if(preg_match(TEMP_CONT_NAME_CONTENT, $page, $matches)>=1){
 
       $page = $this->process_inhiritance($page);
+
       return $page;
     }
     else{
@@ -26,10 +29,20 @@ trait Inhiritance
 
     //process content page
     $content_page = $this->get_content($page);
-    print_r($content_page);
+
+
+    $template_page = $this->get_template($content_page);
+
+    $page = $template_page;
+
+
+    return $page;
+    //print_r($page);
     //process template page
 
   }
+
+
 
 
 }

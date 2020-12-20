@@ -1,7 +1,7 @@
 <?php
 require_once("Assignment.php");
 require_once("inhiritance\Inhiritance.php");
-require_once("constant\Constant.php");
+
 abstract class Init{
   use Assignment, Inhiritance;
 
