@@ -7,7 +7,6 @@ class view_box extends Init{
 
     //define("__PATH",__dir__); update when installed
     include( __PATH."/box/settings/config.php");
-
   }
 
   public function view(){
@@ -22,49 +21,15 @@ class view_box extends Init{
     $page = $this->init_inhiritance($page);
 
     //process variable
-    $page = $this->process_variable($page);
+    $page = $this->process_template_variable($page);
+
+    //process array
+    //  echo htmlspecialchars($page);
+    //  exit;
 
     //compile
     $page = $this->compile_page($page);
 
-  }
-
-
-
-
-
-  private function process_variable($page){
-    //process variable template from page
-
-    preg_match_all(VARIABLE, $page, $matches);
-
-    $tempObjects = $matches[0];
-
-    foreach ($tempObjects as $obj1){
-
-      $obj = preg_split("/\W+/", $obj1);
-      $obj = $obj[1];
-      $count = 0;
-
-      foreach($this->get_assign_var() as $key => $val){
-          if(array_key_exists($obj,$val)){
-
-              $page = str_replace($obj1, $val[$obj], $page);
-              $count = 0;
-              break;
-          }
-          else{
-            $count++;
-          }
-      }
-
-      /*if($count >=1 ){
-        $page = str_replace($obj1, " ", $page);
-      }*/
-      $page = ($count > 0) ? str_replace($obj1, " ", $page):$page;
-    }
-
-    return $page;
   }
 
   private function compile_page($page){

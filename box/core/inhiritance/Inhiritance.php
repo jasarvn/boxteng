@@ -1,7 +1,6 @@
 <?php
-/**
- *
- */
+
+
 require_once("Content.php");
 require_once("Template.php");
 trait Inhiritance
@@ -20,8 +19,7 @@ trait Inhiritance
     else{
       return $page;
     }
-    //var_dump($matches);
-
+  
     return $content_page;
   }
 
@@ -37,8 +35,6 @@ trait Inhiritance
 
 
     return $page;
-    //print_r($page);
-    //process template page
 
   }
 

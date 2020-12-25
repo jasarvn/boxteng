@@ -8,23 +8,18 @@ $test2 = new view_box();
 
 $data3 = array(
             "title"=>"templates",
-             "body"=>"templats1",
+             "body"=>"THIS IS THE BODY",
              "testing"=>"jasper arvin l. abella",
         );
+$data4 = array(
+            "test"=>$data3,
+          );
 
 
-        $data4 = array(
-                 "body"=>"templats1",
-                  //  "bod"=>"arvin"
-                );
 
+$test2->set_data(array("data5"=>$data3));
 
-        $data2 = array(
-                  "test_array" => $data3
-                );
-
-$test2->set_assign_var($data3);
-$test2->view('/sub_view/test2.php');
+$test2->view('/sub_view/test2.php',$data4,$data3);
 
 
 

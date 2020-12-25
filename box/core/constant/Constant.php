@@ -20,3 +20,5 @@
   const DEFAULT_CONTENT = '/{%content\W+\w+\W%}/';
   const CONT_NAME_START = '/{%content\W+';
   const CONT_NAME_END = '\W%}/';
+
+  const CONT_TEMPLATE_VARIABLE = "/\W+/";
