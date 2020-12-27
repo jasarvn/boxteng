@@ -15,10 +15,15 @@
                 );
 
 
-  const VARIABLE = "/{{\w+}}/";
+  const TEMPLATE_VARIABLE = "/{{\w+}}/";
+  const PHP_VARIABLE = "/\\$[a-z A-Z 0-9_.]+/";
 
   const DEFAULT_CONTENT = '/{%content\W+\w+\W%}/';
   const CONT_NAME_START = '/{%content\W+';
   const CONT_NAME_END = '\W%}/';
 
   const CONT_TEMPLATE_VARIABLE = "/\W+/";
+
+  const CONT_GLOBAL_START = "\$GLOBALS['";
+  const CONT_GLOBAL_END = "']";
+  

@@ -23,6 +23,8 @@ class view_box extends Init{
     //process variable
     $page = $this->process_template_variable($page);
 
+    $page = $this->process_php_variable($page);
+
     //process array
     //  echo htmlspecialchars($page);
     //  exit;
