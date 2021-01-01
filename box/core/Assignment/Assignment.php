@@ -15,6 +15,8 @@ trait Assignment {
     foreach ($data as $key => $value){
       $GLOBALS[$key] = $value;
     }
+
+    return $this;
   }
 
 

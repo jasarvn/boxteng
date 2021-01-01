@@ -45,12 +45,10 @@ trait Variable
       $obj = preg_split(CONT_TEMPLATE_VARIABLE, $obj1);
       $obj = $obj[1];
       if(array_key_exists($obj,$GLOBALS)){
-
           $page = str_replace($obj1, CONT_GLOBAL_START.$obj.CONT_GLOBAL_END, $page);
       }
 
     }
-
       return $page;
   }
 

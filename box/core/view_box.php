@@ -31,7 +31,6 @@ class view_box extends Init{
 
     //compile
     $page = $this->compile_page($page);
-
   }
 
   private function compile_page($page){

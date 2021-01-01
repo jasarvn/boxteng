@@ -17,9 +17,10 @@ $data4 = array(
 
 
 
-$test2->set_data(array("data5"=>$data3));
+//$test2->set_data(array("data5"=>$data3));
 
-$test2->view('/sub_view/test2.php',$data4,$data3);
+$test2->set_data(array("data5"=>'super mario'))
+      ->view('/sub_view/test2.php',$data4,$data3);
 
 
 
